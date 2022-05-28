@@ -26,7 +26,12 @@ public class BinaryTreeL {
 
         }
     }
+
     public static void main(String[] args) {
+        int [] nodes = {1,3,2,-1,13,3,39,-1};
+        BinaryTree tree = new BinaryTree();
+        Node root = tree.buildTree(nodes);
+        System.out.println(root.data);
 
     }
 }
