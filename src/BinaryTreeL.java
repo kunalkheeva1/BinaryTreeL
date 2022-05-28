@@ -14,9 +14,9 @@ public class BinaryTreeL {
     //Now creating a binary tree class and storing a recursive function in it
     static class BinaryTree{
         static int idx= -1;
-        static Node buildTree(int[] nodes){
+        public static Node buildTree(int nodes[]){
             idx++;
-            if(nodes[idx]==-1){             //in case there is no element contained by the tree
+            if(nodes[idx] ==-1){             //in case there is no element contained by the tree
                 return null;
             }
             Node newNode = new Node(nodes[idx]);        //got new node that contains nodes array with idx
@@ -28,7 +28,7 @@ public class BinaryTreeL {
     }
 
     public static void main(String[] args) {
-        int [] nodes = {1,3,2,-1,13,3,39,-1};
+        int [] nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree tree = new BinaryTree();
         Node root = tree.buildTree(nodes);
         System.out.println(root.data);
