@@ -19,8 +19,10 @@ public class BinaryTreeL {
             if(nodes[idx]==-1){             //in case there is no element contained by the tree
                 return null;
             }
-
-
+            Node newNode = new Node(nodes[idx]);        //got new node that contains nodes array with idx
+            newNode.left =buildTree(nodes);             //left side, I could access left with newNode object
+            newNode.right = buildTree(nodes);           //right side of the tree
+        return newNode;
 
         }
     }
