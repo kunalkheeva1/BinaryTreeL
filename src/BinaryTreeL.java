@@ -26,8 +26,6 @@ public class BinaryTreeL {
 
         }
     }
-
-
     public static void main(String[] args) {
 
     }
