@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinaryTreeL {
 
     //creating a node class to work with nodes in my code of trees
@@ -56,14 +59,27 @@ public class BinaryTreeL {
         postOrder(root.right);          //travelled the right
         System.out.print(root.data +" ");   //now print
     }
+    //creating a method to print the nodes wrt their levels.
+    public static void printLevel(Node root){
+        Queue<Node> q = new LinkedList<>();         // installed a queue to hold the nodes
+        q.add(root);
+
+       while(!q.isEmpty()){                         // running a loop until my queue gets empty
+           Node curNode = q.remove();               // curNode is a node reference that holds removed nodes of queue
+           System.out.print(curNode.data+ " ");     //then it prints that node
+           if(curNode.left!=null){                  //if the left node is not null, then it again run the loop and remove the node and store it in curNode and then print the node
+               q.add(curNode.left);
+           }if (curNode.right!=null){               //if right node is not null, then it again run the loop, remove the node store in curNode and then print
+               q.add(curNode.right);
+           }
+       }
+    }
 
     public static void main(String[] args) {
         int [] nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree tree = new BinaryTree();
         Node root = tree.buildTree(nodes);
-        postOrder(root);
-        System.out.println();
-        inOrder(root);
+      printLevel(root);
     }
 
 }
