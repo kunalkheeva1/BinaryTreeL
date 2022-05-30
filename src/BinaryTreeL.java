@@ -47,13 +47,23 @@ public class BinaryTreeL {
         System.out.print(root.data+ " ");       //then printing
         inOrder(root.right);                    //then recursively doing same in the right side
     }
+    // Now going to work on post order traversal, it works as  Left, Right and then root
+    public static void postOrder(Node root){
+        if( root == null){
+            return;
+        }
+        postOrder(root.left);           //travelled the left
+        postOrder(root.right);          //travelled the right
+        System.out.print(root.data +" ");   //now print
+    }
 
     public static void main(String[] args) {
         int [] nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree tree = new BinaryTree();
         Node root = tree.buildTree(nodes);
-        preOrder(root);
-
+        postOrder(root);
+        System.out.println();
+        inOrder(root);
     }
 
 }
