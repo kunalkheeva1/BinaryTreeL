@@ -23,8 +23,19 @@ public class BinaryTreeL {
             newNode.left =buildTree(nodes);             //left side, I could access left with newNode object
             newNode.right = buildTree(nodes);           //right side of the tree
         return newNode;
-
         }
+    }
+
+    // creating a method to create preorder traversing
+
+    public static void preOrder(Node root){
+        if(root==null){                         //edge case if it is null
+            return;
+        }
+
+        System.out.println(root.data);          //here i will be priniting the root node first
+        preOrder(root.left);                    //Now it rucursively prints left nodes and then move on to right
+        preOrder(root.right);
     }
 
     public static void main(String[] args) {
